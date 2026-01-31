@@ -4,7 +4,7 @@ import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
 import postgres from 'postgres';
 import { redirect } from 'next/navigation';
-
+import bcrypt from 'bcrypt';
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
  
 // ...
@@ -44,7 +44,7 @@ export async function signUp(formData: FormData) {
     password: (formData.get('password') as string | null) ?? '',
     role: (formData.get('role') as string | null) ?? '',
   };
-
+  const hashedPassword = await bcrypt.hash(data.password, 10);
   // Optional: validate
   if (!data.email || !data.username || !data.password || !data.role) {
     throw new Error('All fields are required');
@@ -54,7 +54,7 @@ export async function signUp(formData: FormData) {
   try {
     await sql`
       INSERT INTO users (name, email, password, role)
-      VALUES (${data.username}, ${data.email}, ${data.password}, ${data.role})
+      VALUES (${data.username}, ${data.email}, ${hashedPassword}, ${data.role})
     `;
     
   } 

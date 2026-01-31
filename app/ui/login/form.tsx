@@ -1,6 +1,6 @@
 'use client';
 import {
-  ExclamationCircleIcon, ArrowRightIcon
+  ExclamationCircleIcon, 
 } from '@heroicons/react/24/outline';
 import { useActionState } from 'react';
 import { authenticate } from '@/app/lib/actions';
@@ -18,12 +18,12 @@ export function Form(){
     return <div className='flex justify-center items-center h-screen'>
         <form className='p-5 border-1 border-cyan-500' action={formAction}>
             <h1 className={`text-center ${Fonts.Headers.className}`}>Sign into your account</h1>
-            <label htmlFor="email" className={`${Fonts.Body.className} text-sm`}>Username:</label><br></br>
+            <label htmlFor="email" className={`${Fonts.Body.className} text-sm`}>Email:</label><br></br>
             <input type="text" id="email" name="email" className='border w-64 md:w-100 mb-4' />
             <br></br>
 
             <div className="w-64 md:w-[400px]">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">  
                     <label htmlFor="password" className={`${Fonts.Body.className} text-sm`}>Password</label>
                     <Link href="/forgot-password"className="text-sm text-cyan-600 hover:underline mt-1 sm:mt-0">
                     Forgot password?

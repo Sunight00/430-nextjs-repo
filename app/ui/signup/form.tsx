@@ -1,18 +1,10 @@
 'use client';
-import {
-  ExclamationCircleIcon, ArrowRightIcon
-} from '@heroicons/react/24/outline';
-import { useActionState } from 'react';
-import { authenticate } from '@/app/lib/actions';
-import { useSearchParams } from 'next/navigation';
+
 import Fonts from '../font'
-import Link from 'next/link';
 import { signUp } from '@/app/lib/actions';
 
 export function Form(){
-    
-
-    return <div className='flex justify-center items-center h-screen'>
+        return <div className='flex justify-center items-center h-screen'>
         <form className='p-5 border-1 border-cyan-500' action={signUp}>
             <h1 className={`text-center ${Fonts.Headers.className}`}>Create an account</h1>
             <label htmlFor="username" className={`${Fonts.Body.className} text-sm`}>Username:</label><br></br>
