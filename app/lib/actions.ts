@@ -1,7 +1,11 @@
 'use server';
- 
+import { z } from 'zod';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import postgres from 'postgres';
+import { redirect } from 'next/navigation';
+
+const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
  
 // ...
  
@@ -23,3 +27,38 @@ export async function authenticate(
     throw error;
   }
 }
+
+
+export type SignUpFormData = {
+  email: string;
+  username: string;
+  password: string;
+  role: string;
+};
+
+export async function signUp(formData: FormData) {
+  // Convert FormData to typed object
+  const data: SignUpFormData = {
+    email: (formData.get('email') as string | null) ?? '',
+    username: (formData.get('username') as string | null) ?? '',
+    password: (formData.get('password') as string | null) ?? '',
+    role: (formData.get('role') as string | null) ?? '',
+  };
+
+  // Optional: validate
+  if (!data.email || !data.username || !data.password || !data.role) {
+    throw new Error('All fields are required');
+  }
+
+  // Insert into DB safely
+  try {
+    await sql`
+      INSERT INTO users (name, email, password, role)
+      VALUES (${data.username}, ${data.email}, ${data.password}, ${data.role})
+    `;
+    
+  } 
+  catch (error) {
+    throw new Error(error as string);
+}
+redirect('/profile');}
