@@ -5,7 +5,7 @@ export const authConfig = {
     signIn: '/login',
   },
   callbacks: {
-    authorized({ auth, request: { nextUrl } }) {
+    /*authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isOnProfile = nextUrl.pathname.startsWith('/profile');
       if (isOnProfile) {
@@ -15,7 +15,27 @@ export const authConfig = {
         return Response.redirect(new URL('/profile', nextUrl));
       }
       return true;
-    },
+    }*/
+    authorized({ auth, request: { nextUrl } }) {
+  const isLoggedIn = !!auth?.user;
+  const isLoginPage = nextUrl.pathname === '/login';
+
+  if (isLoginPage && isLoggedIn) {
+    // If user is already logged in, redirect login → profile
+    return Response.redirect(new URL('/profile', nextUrl));
+  }
+
+  const isProfilePage = nextUrl.pathname.startsWith('/profile');
+  if (isProfilePage && !isLoggedIn) {
+    // Protect profile page
+    return false;
+  }
+
+  // All other pages allowed
+  return true;
+}
+
+      ,
   },
   providers: [], // Add providers with an empty array for now
 } satisfies NextAuthConfig;
