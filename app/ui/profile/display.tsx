@@ -12,7 +12,7 @@ export async function Profile(){
         <div className="border flex-[1] p-4 text-center hidden md:block ">
             <Avatar />
             <h1 className={`${Fonts.Headers.className} text-center`}>{user?.name}</h1>
-            <h2>ddddd</h2>
+            
             <a href='/explore' className="text-blue-500 hover:underline">Explore</a>
                 <form action={async () => {'use server';await signOut({ redirectTo: '/' }); }}>
                     <button className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">

@@ -1,5 +1,5 @@
 import postgres from 'postgres';
-import { email } from 'zod/v4/mini';
+//import { email } from 'zod/v4/mini';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
@@ -12,5 +12,6 @@ export async function getUserByEmail( email: string) {
 }
 
 export async function getProductByUserId(artisanId: string){
-    return sql`SELECT * FROM products WHERE artisan_id = ${artisanId}`;
+    return sql`SELECT * FROM products WHERE user_id = ${artisanId}`;
 }
+

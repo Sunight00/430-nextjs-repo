@@ -9,10 +9,10 @@ export function ProfileNav(){
                     <Link href="/profile" className="text-white hover:text-gray-300">Contents</Link>
                 </li>
                 <li>
-                    <Link href="/profile/mobile/upload" className="text-white hover:text-gray-300">Upload</Link>
+                    <Link href="/profile" className="text-white hover:text-gray-300">Upload</Link>
                 </li>
                 <li>
-                    <Link href="/profile/mobile/profile" className="text-white hover:text-gray-300">Profile</Link>
+                    <Link href="/profile" className="text-white hover:text-gray-300">User</Link>
                 </li>
             </ul>
         </nav>
