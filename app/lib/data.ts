@@ -11,7 +11,7 @@ export async function getUserByEmail( email: string) {
     return sql`SELECT * FROM users WHERE email = ${email}`;
 }
 
-export async function getProductByUserId(artisanId: string){
-    return sql`SELECT * FROM products WHERE user_id = ${artisanId}`;
+export async function getProductByUserId(user_id: string){
+    return sql`SELECT * FROM products WHERE user_id = ${user_id}`;
 }
 

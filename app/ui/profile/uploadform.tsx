@@ -12,7 +12,7 @@ export async function Form(){ {
         const user_id = userData ? String(userData[0].id) : '';
         console.log(user_id);
   return (
-    <div className="view-h border lg:flex-[2] md:block p-5 bg-cyan-50">
+    <div className="view-h border lg:flex-[2] md:block p-5 bg-cyan-50 hidden">
       <h1 className={`${Fonts.Headers.className} text-2xl text-center mb-4`}>
         UPLOAD NEW PRODUCT
       </h1>
@@ -84,7 +84,7 @@ export async function Form(){ {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-red-200 hover:bg-red-300 text-white font-medium py-2 rounded-md transition-colors"
+          className="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 rounded-md transition-colors"
         >
           Upload Product
         </button>
