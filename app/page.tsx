@@ -22,7 +22,7 @@ export default function Page(){
 
   <div className="absolute bottom-8 left-0 right-0 flex flex-col md:flex-row gap-4 items-center justify-center">
     <Button href="/explore" description="Explore Product" />
-    <Button href="/login" description="Seller Login" />
+    <Button href="/login" description="Login" />
 
   </div>
 
