@@ -3,8 +3,12 @@ import { auth } from '@/auth';
 import { addProduct} from '@/app/lib/actions';
 import { getUserByEmail } from '@/app/lib/data';
 
+type FormProps ={
+  smallView: string;
+  largeView: string;
+}
 
-export async function Form(){ {
+export async function Form({smallView ,largeView}: FormProps){ {
         const session = await auth();
         const user = session?.user;
         const userData = user ? await getUserByEmail(user.email!) : null;
@@ -12,7 +16,7 @@ export async function Form(){ {
         const user_id = userData ? String(userData[0].id) : '';
         console.log(user_id);
   return (
-    <div className="view-h border lg:flex-[2] md:block p-5 bg-cyan-50 hidden">
+    <div className={`view-h border lg:flex-[2] ${smallView} md:${largeView} p-5 bg-cyan-50 `}>
       <h1 className={`${Fonts.Headers.className} text-2xl text-center mb-4`}>
         UPLOAD NEW PRODUCT
       </h1>

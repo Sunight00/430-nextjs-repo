@@ -77,7 +77,7 @@ export async function deleteProduct(productId: number) {
 
 
 export async function addProduct(formData: FormData) {
- 
+
   const title = formData.get('title') as string;
   const description = formData.get('description') as string;
   const price = parseFloat(formData.get('price') as string);

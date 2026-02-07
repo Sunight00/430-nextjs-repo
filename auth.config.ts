@@ -16,7 +16,7 @@ export const authConfig = {
       }
       return true;
     }*/
-    authorized({ auth, request: { nextUrl } }) {
+  authorized({ auth, request: { nextUrl } }) {
   const isLoggedIn = !!auth?.user;
   const isLoginPage = nextUrl.pathname === '/login';
 
