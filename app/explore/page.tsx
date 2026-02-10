@@ -1,5 +1,19 @@
-export default function Page(){
+import Search from '@/app/ui/explore/search'
+import { DisplayData } from '@/app/ui/explore/explore'
+
+
+export default async function Page(props: {
+  searchParams?: Promise<{
+    query?: string;
+  }>;
+}){
+    
+    const searchParams = await props.searchParams;
+    const query = searchParams?.query || '';
     return (
-        <h1>Explore Page </h1>
+        <div>
+            <Search placeholder="Search for anything" />
+            <DisplayData query={query} />
+        </div>
     )   
 }

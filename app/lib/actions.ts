@@ -107,3 +107,23 @@ export async function addProduct(formData: FormData) {
 
   revalidatePath("/profile");
 }
+
+export async function getProducts(query: string) {
+  try{
+      const products = await sql`
+  SELECT products.id, products.title, products.description, products.price, products.image_url, products.category, users.name FROM public.products JOIN users on products.user_id = users.id
+  WHERE products.title ILIKE ${`%${query}%`} OR
+	products.description ILIKE ${`%${query}%`} OR
+	products.price::text ILIKE ${`%${query}%`} OR
+	products.category ILIKE ${`%${query}%`} OR
+	users.name ILIKE ${`%${query}%`}
+  ORDER BY products.id ASC 
+  ;`
+  return products;
+  }
+  catch(error){
+    console.error('Error fetching products:', error);
+    throw new Error('Failed to fetch products');
+  }
+
+}
