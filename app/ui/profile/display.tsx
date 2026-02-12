@@ -9,7 +9,7 @@ export async function Profile(){
     const session = await auth();
     const user = session?.user;
     return (
-<div className="border flex flex-col flex-[1] p-4 text-center">
+<div className="flex border-r border-neutral-200   flex-col flex-[1] p-4 text-center">
     <div>
         <Avatar />
         <h1 className={`${Fonts.Headers.className} text-center`}>

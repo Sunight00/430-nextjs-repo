@@ -21,7 +21,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     }
  
     return (
-        <div className="ml-auto mr-auto mt-4 w-full max-w-md">
+        <div className="w-60 bg-white basis-1/2 ">
             <div className="relative flex flex-1 shrink-0">
                 <label htmlFor="search" className="sr-only">
                     Search

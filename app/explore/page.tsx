@@ -1,5 +1,6 @@
-import Search from '@/app/ui/explore/search'
+import { Nav } from '@/app/ui/explore/nav'
 import { DisplayData } from '@/app/ui/explore/explore'
+
 
 
 export default async function Page(props: {
@@ -7,12 +8,13 @@ export default async function Page(props: {
     query?: string;
   }>;
 }){
-    
     const searchParams = await props.searchParams;
     const query = searchParams?.query || '';
+
+
     return (
         <div>
-            <Search placeholder="Search for anything" />
+            <Nav />
             <DisplayData query={query} />
         </div>
     )   
