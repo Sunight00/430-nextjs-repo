@@ -11,12 +11,14 @@ import {Contents} from '@/app/ui/profile/contents'
 export default async function Page() {
 
     //const image = user?.image || profile;
+
+    //smallView='hidden' largeView='block'
   return (
     <>
     <div className="flex flex-col  md:flex-row h-screen ">
       <Profile />
       <Contents />
-      <Form smallView='hidden' largeView='block' />
+      <Form  />
     </div>
     </>
   );
