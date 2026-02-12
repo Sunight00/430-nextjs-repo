@@ -4,7 +4,7 @@ import {Contents} from '@/app/ui/profile/contents'
 //import {ProfileNav} from '@/app/ui/profile/nav'
 
 
-//import profile from '../public/userimage.png'
+//import profile from '../public/userimage.png '
 
 
 
