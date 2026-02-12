@@ -1,4 +1,4 @@
-import {Form} from '@/app/ui/profile/uploadform'
+import {Form} from '@/app/ui/profile/uploadform2'
 import {ArrowUturnLeftIcon} from '@heroicons/react/24/outline'
 import Link from 'next/link';
 //smallView='block' largeView='hidden'

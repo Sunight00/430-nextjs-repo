@@ -16,7 +16,7 @@ export async function Form(){ {
         const user_id = userData ? String(userData[0].id) : '';
         console.log(user_id);
   return (
-    <div className={`view-h  lg:flex-[2]  p-5 bg-cyan-50 border-l border-neutral-200 hidden md:block`}>
+    <div className={`view-h  lg:flex-[2]  p-5 bg-cyan-50 border-l border-neutral-200 block md:hidden`}>
       <h1 className={`${Fonts.Headers.className} text-2xl text-center mb-4`}>
         UPLOAD NEW PRODUCT
       </h1>
