@@ -108,9 +108,12 @@ export async function addProduct(formData: FormData) {
   revalidatePath("/profile");
 }
 
+
+
+import {Product} from "@/app/ui/explore/productcard";
 export async function getProducts(query: string) {
   try{
-      const products = await sql`
+      const results = await sql`
   SELECT products.id, products.title, products.description, products.price, products.image_url, products.category, users.name FROM public.products JOIN users on products.user_id = users.id
   WHERE products.title ILIKE ${`%${query}%`} OR
 	products.description ILIKE ${`%${query}%`} OR
@@ -119,6 +122,15 @@ export async function getProducts(query: string) {
 	users.name ILIKE ${`%${query}%`}
   ORDER BY products.id ASC 
   ;`
+  const products: Product[] = results.map((row) => ({
+  id: row.id,
+  title: row.title,
+  description: row.description,
+  price: row.price,
+  image_url: row.image_url,
+  category: row.category,
+  name: row.name,
+}));
   return products;
   }
   catch(error){

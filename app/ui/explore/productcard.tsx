@@ -1,12 +1,13 @@
 "use client";
 
 export type Product = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  image_url: string;
-  name: string;
+    id: number;
+    title: string;
+    description: string;
+    image_url: string;
+    category: string;
+    price: number;
+    name: string;
 };
 
 export default function ProductCard({ product }: { product: Product }) {
