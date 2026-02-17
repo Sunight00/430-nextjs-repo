@@ -1,6 +1,7 @@
 import { Nav } from '@/app/ui/explore/nav'
 import { DisplayData } from '@/app/ui/explore/explore'
-
+import {Suspense} from 'react'
+import { ExploreSkeleton } from "../ui/skeletons"
 
 
 export default async function Page(props: {
@@ -15,7 +16,9 @@ export default async function Page(props: {
     return (
         <div>
             <Nav />
-            <DisplayData query={query} />
+            <Suspense fallback={ExploreSkeleton()}>
+              <DisplayData query={query} />
+            </Suspense>
         </div>
     )   
 }
