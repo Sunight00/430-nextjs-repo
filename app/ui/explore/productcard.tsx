@@ -49,38 +49,21 @@ export default function ProductCard({ product }: { product: Product }) {
 
             <button onClick={openDialog} className="text-xs border px-2 py-1 rounded">Review</button>
 
-<dialog
-  id={`dialog-${product.id}`}
-  className="fixed inset-0 m-auto rounded-lg p-6 w-[90%] max-w-md shadow-lg backdrop:bg-black/40"
->
-  <div className="relative flex flex-col items-center gap-3 text-center">
+            <dialog id={`dialog-${product.id}`} className="fixed inset-0 m-auto rounded-lg p-6 w-[90%] max-w-md shadow-lg backdrop:bg-black/40">
+              <div className="relative flex flex-col items-center gap-3 text-center">
+                {/* Close Button */}
+                <button onClick={closeDialog} className="absolute -top-3 -right-3 bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md hover:bg-red-600">✕</button>
 
-    {/* Close Button */}
-    <button
-      onClick={closeDialog}
-      className="absolute -top-3 -right-3 bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md hover:bg-red-600"
-    >
-      ✕
-    </button>
+                <img src={product.image_url} className="w-32 h-32 object-cover rounded-md" alt={product.title}/>
 
-    <img
-      src={product.image_url}
-      className="w-32 h-32 object-cover rounded-md"
-      alt={product.title}
-    />
+                <h2 className="font-semibold text-lg">{product.title}</h2>
 
-    <h2 className="font-semibold text-lg">{product.title}</h2>
+                <p className="text-sm text-gray-600">{product.description}</p>
 
-    <p className="text-sm text-gray-600">
-      {product.description}
-    </p>
+                <p className="font-bold text-cyan-800 text-sm"> ${product.price}</p>
 
-    <p className="font-bold text-cyan-800 text-sm">
-      ${product.price}
-    </p>
-
-  </div>
-</dialog>
+              </div>
+            </dialog>
     </div>
   );
 }
