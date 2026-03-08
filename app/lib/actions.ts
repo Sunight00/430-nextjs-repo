@@ -139,3 +139,19 @@ export async function getProducts(query: string) {
   }
 
 }
+
+export async function getRatings(productId: number) {
+  try {
+    const results = await sql`
+      SELECT id, ratings, commentor, reviews FROM reviews WHERE product_id = ${productId}
+    `;
+    return results; /*results.map((row) => ({
+      rating: row.ratings,
+      review: row.reviews,
+    }));*/ 
+  }
+  catch (error) {
+    console.error('Error fetching ratings:', error);
+    throw new Error('Failed to fetch ratings');
+  }
+}

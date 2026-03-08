@@ -1,5 +1,5 @@
 "use client";
-
+import {Rating} from "@/app/ui/explore/rating";
 export type Product = {
     id: number;
     title: string;
@@ -63,7 +63,11 @@ export default function ProductCard({ product }: { product: Product }) {
                 <p className="font-bold text-cyan-800 text-sm"> ${product.price}</p>
 
               </div>
+              <Rating productId={product.id} />
             </dialog>
+
+
+
     </div>
   );
 }
