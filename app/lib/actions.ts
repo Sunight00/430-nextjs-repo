@@ -145,10 +145,12 @@ export async function getRatings(productId: number) {
     const results = await sql`
       SELECT id, ratings, commentor, reviews FROM reviews WHERE product_id = ${productId}
     `;
-    return results; /*results.map((row) => ({
+    return results.map((row) => ({
       rating: row.ratings,
       review: row.reviews,
-    }));*/ 
+      commentor: row.commentor,
+      id: row.id,
+    }));
   }
   catch (error) {
     console.error('Error fetching ratings:', error);

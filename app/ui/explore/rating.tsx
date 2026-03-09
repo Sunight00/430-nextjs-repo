@@ -4,8 +4,8 @@ import { getRatings } from '@/app/lib/actions';
 type Review = {
   id: number;
   commentor: string;
-  ratings: number;
-  reviews: string;
+  rating: number;
+  review: string;
 };
 export function Rating( {productId}: {productId: number} ) {
     const [ratings, setRatings] = useState<Review[]>([]);
@@ -21,8 +21,8 @@ export function Rating( {productId}: {productId: number} ) {
                 {ratings.map((review)=>(
                     <div key={review.id}>
                         <p>Name: {review.commentor}</p>
-                        <p>Rating: {review.ratings}</p>
-                        <p>Review: {review.reviews}</p>
+                        <p>Rating: {review.rating}</p>
+                        <p>Review: {review.review}</p>
                         
                     </div>
                 ))}
